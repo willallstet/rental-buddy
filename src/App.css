@@ -1,5 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&family=Playwrite+AR:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Playwrite+AR:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Playwrite+AR:wght@100..400&display=swap');
+
+.title {
+  font-family: "Playwrite AR", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: #EAD2AC;
+  font-size: 3rem;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+
+  img {
+    height: 6rem;
+  }
+}
+
+h2 {
+  font-family: "Edu AU VIC WA NT Hand", cursive;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+p {
+  font-size: small;
+}
+
 .App {
   text-align: center;
+}
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
 }
 
 .App-logo {
@@ -7,32 +49,231 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.plot {
+  position: relative;
+  width: 60%;
+  height: 66vh;
+  background-color: #EAD2AC;
+  margin: 20px 0;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.x-axis-label {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1rem;
+  color: #001d4a;
+}
+
+.y-axis-label {
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  transform: translateY(-50%) rotate(-90deg);
+  font-size: 1rem;
+  color: #001d4a;
+}
+
+.listings-grid {
+  display: grid;
+  gap: 10px;
+  width: 30%;
+  height: 66vh;
+  background-color: #EAD2AC;
+  padding: 10px;
+  overflow-y: auto;
+  border-radius: 10px;
+}
+
+.thumbnail {
+  cursor: pointer;
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+}
+
+.thumbnail img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 2px 0;
+}
+
+.listing-details {
+  width: 60%;
+  height: 66vh;
+  border: 2px solid #001d4a;
+  background-color: #EAD2AC;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.listing-details img {
+  width: 100%;
+  height: auto;
 }
 
 .App-header {
-  background-color: #282c34;
+  background: linear-gradient(to bottom, #274029, #001d4a);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  color: #EAD2AC;
+}
+
+.plot {
+  position: relative;
+  width: 60%;
+  height: 66vh;
+  background-color: #EAD2AC;
+  margin: 20px 0;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  cursor: pointer;
+  color: #001d4a;
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.close-square {
+  position: absolute;
+  top: 0;
+  left: 0;
   color: white;
+  background-color: grey;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.close-square:hover {
+  color: black;
 }
 
-@keyframes App-logo-spin {
-  from {
+.square {
+  position: relative;
+  border-radius: 50%;
+}
+
+.square .caption {
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 2px 5px;
+  white-space: nowrap;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #fff;
+  border-top: 3px solid #001d4a;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+
+  100% {
     transform: rotate(360deg);
   }
 }
